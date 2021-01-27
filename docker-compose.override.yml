@@ -1,0 +1,13 @@
+version: "3.3"
+services:
+  build:
+    depends_on:
+      - etcd
+    environment:
+      - ETCD_ENDPOINT=etcd:2379
+
+  etcd:
+    image: bitnami/etcd
+    environment:
+      - ALLOW_NONE_AUTHENTICATION=yes
+      - ETCD_ADVERTISE_CLIENT_URLS=http://etcd:2379
