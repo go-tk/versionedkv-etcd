@@ -1,3 +1,4 @@
+// Package etcdstorage provides the implementation of versionedkv based on etcd.
 package etcdstorage
 
 import (
