@@ -33,12 +33,8 @@ github.com/go-logfmt/logfmt v0.3.0/go.mod h1:Qt1PoO58o5twSAckw1HlFXLmHsOX5/0LbT9
 github.com/go-stack/stack v1.8.0/go.mod h1:v0f6uXyyMGvRgIKkXu+yp6POWl0qKG85gN/melR3HDY=
 github.com/go-tk/testcase v0.3.0 h1:0X+gbarmrcuPnFMxHj/AD5ZZAZOoeUWU0ygLpCIx/Gk=
 github.com/go-tk/testcase v0.3.0/go.mod h1:70s7MsM3r38BYfzntn8spYX2EvYBdoJkBUY/lVCjZz8=
-github.com/go-tk/versionedkv v0.2.2 h1:W6vSEJtZqjN6MEaUjUATvBd8fI1h8E1kr8lEapDiLjI=
-github.com/go-tk/versionedkv v0.2.2/go.mod h1:K7+gCyN5LYXKrcQDSgEeps9FxD3KrtnDJm4jQnc4EGg=
-github.com/go-tk/versionedkv v0.2.3 h1:ibI3fmfAT/GtzI3DW8y1TGYBm0/WxEGS3ZnIV/N9onU=
-github.com/go-tk/versionedkv v0.2.3/go.mod h1:K7+gCyN5LYXKrcQDSgEeps9FxD3KrtnDJm4jQnc4EGg=
-github.com/go-tk/versionedkv v0.2.4 h1:p8Z/KTrDnpYYeiylWNtCOETfuwpBDftDMTCvvaXQn/s=
-github.com/go-tk/versionedkv v0.2.4/go.mod h1:K7+gCyN5LYXKrcQDSgEeps9FxD3KrtnDJm4jQnc4EGg=
+github.com/go-tk/versionedkv v0.2.5 h1:vlbMmb0Bx90PcdlE6NhSO65oOqOYKmYYC2vrFQ/CIdk=
+github.com/go-tk/versionedkv v0.2.5/go.mod h1:K7+gCyN5LYXKrcQDSgEeps9FxD3KrtnDJm4jQnc4EGg=
 github.com/gogo/protobuf v1.1.1/go.mod h1:r8qH/GZQm5c6nD/R0oafs1akxWv10x8SbQlK7atdtwQ=
 github.com/gogo/protobuf v1.2.1 h1:/s5zKNz0uPFCZ5hddgPdo2TK2TVrUNMn0OOX8/aZMTE=
 github.com/gogo/protobuf v1.2.1/go.mod h1:hp+jE20tsWTFYpLwKvXlhS1hjn+gTNwPg2I6zVXpSg4=

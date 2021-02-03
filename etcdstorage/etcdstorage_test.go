@@ -1,16 +1,13 @@
 package etcdstorage_test
 
 import (
-	"context"
 	"fmt"
 	"math/rand"
 	"os"
 	"testing"
-	"time"
 
 	"github.com/go-tk/versionedkv"
 	. "github.com/go-tk/versionedkv-etcd/etcdstorage"
-	"github.com/stretchr/testify/assert"
 	"go.etcd.io/etcd/clientv3"
 )
 
@@ -18,18 +15,6 @@ func TestEtcdStorage(t *testing.T) {
 	versionedkv.DoTestStorage(t, func() (versionedkv.Storage, error) {
 		return makeStorage()
 	})
-}
-
-func TestEtcdStorage_Close(t *testing.T) {
-	s, err := makeStorage()
-	if !assert.NoError(t, err) {
-		t.FailNow()
-	}
-	time.AfterFunc(1*time.Second, func() {
-		s.Close() // WaitForValue should fail with error ErrStorageClosed
-	})
-	_, _, err = s.WaitForValue(context.Background(), "foo", nil)
-	assert.Equal(t, err, versionedkv.ErrStorageClosed)
 }
 
 type storage struct {
