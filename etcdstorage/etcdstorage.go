@@ -12,12 +12,12 @@ import (
 
 // Options represents options for etcd storages.
 type Options struct {
-	Prefix string
+	KeyPrefix string
 }
 
 func (o *Options) sanitize() {
-	if o.Prefix == "" {
-		o.Prefix = "versionedkv/"
+	if o.KeyPrefix == "" {
+		o.KeyPrefix = "versionedkv/"
 	}
 }
 
@@ -222,7 +222,7 @@ func (es *etcdStorage) Inspect(ctx context.Context) (versionedkv.StorageDetails,
 	if es.isClosed() {
 		return versionedkv.StorageDetails{IsClosed: true}, nil
 	}
-	getResp, err := es.client.Get(ctx, es.options.Prefix, clientv3.WithPrefix())
+	getResp, err := es.client.Get(ctx, es.options.KeyPrefix, clientv3.WithPrefix())
 	if err != nil {
 		return versionedkv.StorageDetails{}, err
 	}
@@ -231,7 +231,7 @@ func (es *etcdStorage) Inspect(ctx context.Context) (versionedkv.StorageDetails,
 		if valueDetails == nil {
 			valueDetails = make(map[string]versionedkv.ValueDetails)
 		}
-		key := string(kv.Key[len(es.options.Prefix):])
+		key := string(kv.Key[len(es.options.KeyPrefix):])
 		valueDetails[key] = versionedkv.ValueDetails{
 			V:       string(kv.Value),
 			Version: kv.ModRevision,
@@ -243,7 +243,7 @@ func (es *etcdStorage) Inspect(ctx context.Context) (versionedkv.StorageDetails,
 }
 
 func (es *etcdStorage) fullKey(key string) string {
-	return es.options.Prefix + key
+	return es.options.KeyPrefix + key
 }
 
 func (es *etcdStorage) isClosed() bool {

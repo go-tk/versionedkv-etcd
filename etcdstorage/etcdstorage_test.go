@@ -2,8 +2,8 @@ package etcdstorage_test
 
 import (
 	"fmt"
-	"math/rand"
 	"os"
+	"sync/atomic"
 	"testing"
 
 	"github.com/go-tk/versionedkv"
@@ -29,8 +29,9 @@ func makeStorage() (storage, error) {
 	if err != nil {
 		return storage{}, err
 	}
+	sid := int(atomic.AddInt32(&lastStorageID, 1))
 	s := New(c, Options{
-		Prefix: fmt.Sprintf("versionedkv-%d/", rand.Int63()),
+		KeyPrefix: fmt.Sprintf("versionedkv%d/", sid),
 	})
 	return storage{
 		Storage: s,
@@ -44,3 +45,5 @@ func (s storage) Close() error {
 	s.c.Close()
 	return err
 }
+
+var lastStorageID int32
